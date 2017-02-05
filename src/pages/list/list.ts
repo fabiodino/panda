@@ -38,8 +38,8 @@ export class ListPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-     this.chestsObservable.dispose();
-   }
+
+  }
 
   itemTapped(event, item) {
     this.navCtrl.push(ItemDetailsPage, {

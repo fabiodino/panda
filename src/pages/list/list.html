@@ -3,22 +3,52 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>My First List</ion-title>
+    <ion-title>My Precious</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <div ion-item *ngFor="let item of items">
-      <button ion-button (click)="itemTapped($event, item)" item-left>
-      </button>
-      {{item.name}}
-      <div class="item-note" item-right>
-        {{item.description}}
-      </div>
-      <button ion-button (click)="removeItem($event, item)">
-        Remove
-      </button>
+
+      <ion-card>
+        <ion-card-header>
+
+          <ion-row wrap>
+            <ion-col center no-padding>
+                {{item.name}}
+            </ion-col>
+            <ion-col text-right no-padding>
+              <button ion-button clear>
+                <ion-icon name="more"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{item.description}}</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col center text-center>
+            <button ion-button clear small (click)="itemTapped($event, item)">
+              <ion-icon name="md-eye"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col text-center>
+            <button ion-button clear small (click)="itemEdit($event, item)">
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+            <button ion-button clear small (click)="removeItem($event, item)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
     </div>
   </ion-list>
   <div *ngIf="selectedItem" padding>

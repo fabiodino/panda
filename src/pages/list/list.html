@@ -9,9 +9,6 @@
 
 <ion-content>
   <ion-list>
-    <button ion-button (click)="createItem($event)">
-      Criar item
-    </button>
     <div ion-item *ngFor="let item of items">
       <button ion-button (click)="itemTapped($event, item)" item-left>
       </button>

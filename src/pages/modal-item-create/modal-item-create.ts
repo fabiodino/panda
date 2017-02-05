@@ -16,7 +16,7 @@ export class ModalItemCreatePage {
   description: any;
   name: any;
   items: any;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, platform: Platform) {
     this.items = navParams.data;
   }
@@ -30,11 +30,10 @@ export class ModalItemCreatePage {
   }
 
   saveItem() {
-    /*this.items.push({
+    this.items.push({
       id: this.items.length + 1,
-      title: this.name,
-      note: this.description,
-      icon: 'beer',
-    })*/
+      name: this.name,
+      description: this.description
+    })
   }
 }

@@ -7,6 +7,8 @@ import { ModalItemCreatePage } from '../pages/modal-item-create/modal-item-creat
 import { ListPage } from '../pages/list/list';
 import { Storage } from '@ionic/storage';
 
+import {ServiceProvider} from '../providers/service-provider';
+
 export function provideStorage () {
   return new Storage(['sqlite', 'websql', 'indexeddb'], {name: '__mydb'});
 }
@@ -30,7 +32,7 @@ export function provideStorage () {
     ListPage,
     ModalItemCreatePage,
   ],
-  providers: [{
+  providers: [ServiceProvider, {
     provide: ErrorHandler, useClass: IonicErrorHandler,
   }, {
     provide: Storage, useFactory: provideStorage,
